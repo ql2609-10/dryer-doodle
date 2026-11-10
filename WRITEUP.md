@@ -52,4 +52,4 @@ GitHub repository: https://github.com/ql2609-10/dryer-doodle
 
 GitHub profile: https://github.com/ql2609-10
 
-Codex transcript: Pending share-link generation.
+Codex transcript: https://chatgpt.com/s/cx_6af35f8f16288191abd32108556d7f95
