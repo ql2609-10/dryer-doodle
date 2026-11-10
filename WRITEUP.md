@@ -48,7 +48,7 @@ One real second represents one simulated minute. All active cycles use 40 minute
 
 ## Project and AI transcript links
 
-GitHub repository: Pending upload after GitHub sign-in is restored.
+GitHub repository: https://github.com/ql2609-10/dryer-doodle
 
 GitHub profile: https://github.com/ql2609-10
 
