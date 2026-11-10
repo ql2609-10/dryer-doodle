@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Dryer — Appliance Doodle</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><p class="eyebrow">AN EVERYDAY APPLIANCE / A COMPUTATIONAL MODEL</p>
+      <h1>One more Quick 40.</h1>
+      <p>Inspired by my home dryer: choose a cycle, press Start, and check the clothes when it finishes.</p>
+    </header>
+    <div class="layout">
+      <section class="machine" aria-label="Interactive dryer">
+        <div class="panel">
+          <label for="mode">Cycle selector</label>
+          <select id="mode">
+            <option value="off">Off</option>
+            <option value="cottonExtraDry">Cotton Extra Dry</option>
+            <option value="cottonDry">Cotton Dry</option>
+            <option value="towels">Towels</option>
+            <option value="sanitize">Sanitize</option>
+            <option value="jeans">Jeans</option>
+            <option value="heavyDuty">Heavy Duty</option>
+            <option value="quickDryAuto">Quick Dry Auto</option>
+            <option value="handWashWool">Hand Wash/Wool</option>
+            <option value="timedDryVariable">Timed Dry Variable</option>
+            <option value="quick">Quick 40</option>
+            <option value="delicates">Delicates</option>
+            <option value="permDamp">Perm P Damp</option>
+            <option value="permDry">Perm P Dry</option>
+            <option value="permExtraDry">Perm Press Extra Dry</option>
+            <option value="noHeat">Air Fluff / No Heat</option>
+          </select>
+          <div class="display"><span id="status" role="status">Off</span><strong id="timer">00:00</strong><span id="heat">Heat off</span></div>
+          <button id="start">Start / Pause</button>
+        </div>
+        <div class="door" id="doorVisual"><div class="drum" id="drum"><span class="clothes">≈</span></div><span id="doorLabel">Door closed · Empty</span></div>
+        <div class="actions"><button id="door">Open door</button><button id="load">Load clothes</button></div>
+        <p id="message" role="status">Open the door to load clothes.</p>
+        <p class="note">Demo speed: 1 second = 1 simulated minute. All cycles use 40 simulated minutes. Except for Quick 40, durations are placeholders. Added modes use simplified heat-on behavior; Air Fluff / No Heat keeps heat off. Real temperature and timing differences are not modeled. The moisture check is my proposed improvement.</p>
+      </section>
+      <aside>
+        <section class="card"><h2>My improvement: moisture check</h2>
+          <label for="initialMoisture">Starting moisture score: <output id="initialValue" for="initialMoisture">70</output> / 100</label>
+          <input id="initialMoisture" type="range" min="0" max="100" step="10" value="70" aria-describedby="sensorNote">
+          <p id="sensorNote" class="note">Set before loading. This is an invented score, not a real moisture percentage. A score of 10 or less means dry. Quick 40 automatically adds one cycle if still damp; other modes do not.</p>
+        </section>
+        <section class="card"><h2>Inside the model</h2><dl>
+          <div><dt>cycle</dt><dd id="cycleValue">off</dd></div>
+          <div><dt>state</dt><dd id="stateValue">off</dd></div>
+          <div><dt>doorOpen</dt><dd id="doorValue">false</dd></div>
+          <div><dt>hasClothes</dt><dd id="clothesValue">false</dd></div>
+          <div><dt>minutesLeft</dt><dd id="minutesValue">0</dd></div>
+          <div><dt>moistureLevel</dt><dd id="moistureValue">No load</dd></div>
+          <div><dt>autoRepeatCount</dt><dd id="repeatValue">0 / 1</dd></div>
+        </dl></section>
+        <section class="card"><h2>Try the logic</h2><ol><li>Open the door, load clothes, and close it.</li><li>Select Quick 40 and press Start.</li><li>Open and close the door during the cycle. Press Start to resume.</li><li>With starting moisture 70, watch Quick 40 automatically add one cycle after the first 40 seconds.</li></ol><p class="note">Heated cycles reduce the invented moisture score by 1 per simulated minute; No Heat leaves it unchanged. Real clothes may behave differently.</p></section>
+      </aside>
+    </div>
+    <section class="inspiration"><img src="assets/my-dryer.jpg" alt="My Bosch 300 Series dryer with a cycle dial and Start/Pause control"><div><p class="eyebrow">THE REAL-WORLD STARTING POINT</p><h2>My everyday routine</h2><p>I usually use Quick 40. If the clothes still feel damp, I run it again. For items such as wool, I use No Heat. Opening the door interrupts the cycle; closing it requires another press of Start.</p><p class="note">A simplified classroom simulation based on my routine, not a full reproduction of the appliance.</p></div></section>
+  </main>
+</body>
+</html>
